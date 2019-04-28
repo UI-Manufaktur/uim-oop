@@ -4,8 +4,8 @@ import std.conv;
 import uim.oop;
 
 class DMapString : MapTempl!(string, string) {
-	@safe this() { super(); }
-	@safe this(string[string] values) { this(); _items = values; }
+	this() { super(); }
+	this(string[string] values) { this(); _items = values; }
 
 	@property override string[string] items() { return _items; }
 	@property string[string] items(string[] ignoreKeys) { 
@@ -30,7 +30,7 @@ class DMapString : MapTempl!(string, string) {
 	@safe override void opIndexAssign(V, K)(V value, K key) { _items[key] = to!V(value); }
 	@safe override void opIndexAssign(string value, string key) { _items[key] = value; }
 
-	@safe override string toHTML() {
+	override string toHTML() {
 		if (empty) return "";
 		
 		string result;
@@ -43,7 +43,7 @@ class DMapString : MapTempl!(string, string) {
 		}
 		return result;
 	}
-	@safe override Json toJson() {
+	override Json toJson() {
 		auto result = super.toJson;
 		if (empty) return result;
 		
@@ -52,7 +52,7 @@ class DMapString : MapTempl!(string, string) {
 		}
 		return result;
 	}
-	@safe override string toCSS() {
+	override string toCSS() {
 		if (empty) return "";
 		
 		string[] result;
@@ -63,8 +63,8 @@ class DMapString : MapTempl!(string, string) {
 		return result.join(";");
 	}
 }
-@safe auto MapString() { return new DMapString(); }
-@safe auto MapString(string[string] values) { return new DMapString(values); }
+auto MapString() { return new DMapString(); }
+auto MapString(string[string] values) { return new DMapString(values); }
 
 unittest {
 	assert(MapString.items == null); 

@@ -8,8 +8,6 @@
 		"vibe-d:data": "==0.8.5",
 		"uim-core": "~>19.4.27"
 	},
-	"targetName": "uimcore",
-    "targetType": "staticLibrary",
-    "targetPath": "build",
-	"workingDirectory": "build"
+	"targetName": "uim-oop",
+    "targetType": "library",
 }

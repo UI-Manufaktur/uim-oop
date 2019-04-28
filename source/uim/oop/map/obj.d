@@ -4,14 +4,13 @@ import uim.oop;
 public import uim.oop.map;
 
 class MapObj : Obj{
-@safe:
 	this() {}
 
 	@safe bool empty() { return true; }
 	@safe size_t length() { return 0; }
 	@safe O clear(this O)() { return cast(O)this; }
 
-	@safe override string toString() {
+	override string toString() {
 		return super.toString;
 	}
 }

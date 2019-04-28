@@ -16,13 +16,13 @@ class MapTempl(K, V): MapObj {
 	@safe override bool empty() { return (length == 0); }
 	@safe override size_t length() { return _items.length; }
 
-	@safe K[] keys(bool sorted = false) { 
-		auto k = _items.getKeys; 
+	K[] keys(bool sorted = false) { 
+		auto k = _items.keys; 
 		if (sorted) k = k.sort.array;
 		return k;
 	}
-	@safe V[] values(bool sorted = false) { 
-		auto v = _items.getValues; 
+	V[] values(bool sorted = false) { 
+		auto v = _items.values; 
 		if (sorted) v = v.sort.array; 
 		return v; 
 	}
@@ -81,12 +81,12 @@ class MapTempl(K, V): MapObj {
 		return cast(O)this;
 	}
 
-	@safe string[] toStrings(string mask = "%s=%s") {
+	string[] toStrings(string mask = "%s=%s") {
 		string[] result;
 		foreach(k, v; items) result ~= mask.format(k,v);
 		return result;
 	}
-	@safe string toHTML() {
+	string toHTML() {
 		if (empty) return "";
 
 		string result;
@@ -98,14 +98,14 @@ class MapTempl(K, V): MapObj {
 		}
 		return result;
 	}
-	@safe string toJSON() {
+	string toJSON() {
 		if (empty) return "";
 		
 		string[] result;
 		foreach(k, v; _items) result ~= `"%s"="%s"`.format(k,v);
 		return result.join(",");
 	}
-	@safe string toCSS() {
+	string toCSS() {
 		if (empty) return "";
 		
 		string[] result;
@@ -115,7 +115,7 @@ class MapTempl(K, V): MapObj {
 		}
 		return result.join(";");
 	}
-	@safe string toXML() {
+	string toXML() {
 		if (empty) return "";
 		
 		string result;
@@ -123,8 +123,8 @@ class MapTempl(K, V): MapObj {
 		return result;
 	}
 }
-@safe auto OOPMap(K, V)() { return DOOPMap!(K, V)(); }
-@safe auto OOPMap(K, V)(V[K] values) { return DOOPMap!(K, V)(values); }
+auto OOPMap(K, V)() { return DOOPMap!(K, V)(); }
+auto OOPMap(K, V)(V[K] values) { return DOOPMap!(K, V)(values); }
 
 unittest {
 	import std.stdio;

@@ -72,7 +72,7 @@ class Obj {
 		return cast(O)this;
 	}
 
-	@safe Json toJson() {
+	Json toJson() {
 		auto result = Json.emptyObject;
 		result["Fullname"] = fullname;
 		result["Properties"] = _properties.toJson;
@@ -84,7 +84,7 @@ class Obj {
 		return result;
 	}
 
-	@safe override string toString() { return toJson.toString; }
+	override string toString() { return toJson.toString; }
 }
 @safe auto OBJ() { return new Obj; }
 
