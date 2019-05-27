@@ -6,7 +6,7 @@
 	"license": "Apache 2.0",
 	"dependencies": {
 		"vibe-d:data": "==0.8.5",
-		"uim-core": "~>19.4.27"
+		"uim-core": "~>0.19.5"
 	},
 	"targetName": "uim-oop",
     "targetType": "library",
