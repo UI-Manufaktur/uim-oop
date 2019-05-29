@@ -1,7 +1,7 @@
 {
 	"name": "uim-oop",
 	"authors": [ "UI Manufaktur" ],
-	"description": "OOP library",
+	"description": "OOP library for D",
 	"copyright": "Copyright © 2019, UI Manufaktur UG",
 	"license": "Apache 2.0",
 	"dependencies": {
