@@ -5,8 +5,8 @@
 	"copyright": "Copyright © 2019, UI Manufaktur UG",
 	"license": "Apache 2.0",
 	"dependencies": {
-		"vibe-d:data": "==0.8.5",
-		"uim-core": "~>0.19.5"
+		"vibe-d:data": "~>0.8.5",
+		"uim-core": "~>0.19.6"
 	},
 	"targetName": "uim-oop",
     "targetType": "library",
