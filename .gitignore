@@ -24,3 +24,5 @@ docs/
 *.lst
 
 dub\.selections\.json
+
+uim-oop-test-library
