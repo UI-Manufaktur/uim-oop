@@ -51,7 +51,4 @@ unittest {
 	assert(VALUETEMPL!string()(2.1).value == "2.1");
 	assert(VALUETEMPL!string("0")(2).value == "2");
 	assert(VALUETEMPL!string("0")(2.1).value == "2.1");
-
-	auto value = VALUETEMPL!int; value.value = 1;
-	writeln(VALUETEMPL!int.value); // == 1);
 }

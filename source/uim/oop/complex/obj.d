@@ -8,5 +8,5 @@ class DOOPComplexObj : DOOPObject {
 auto OOPComplexObj() { return new DOOPComplexObj; }
 
 unittest {
-	writeln("Testing ", __MODULE__);
+	
 }

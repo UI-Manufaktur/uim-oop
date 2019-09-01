@@ -29,11 +29,4 @@ auto ArrayString(string[] values...) { return new DArrayString(values); }
 auto ArrayString(bool sortedMode, bool uniqueMode, string[] values) { return new DArrayString(sortedMode, uniqueMode, values); }
 
 unittest {
-	writeln("Testing ", __MODULE__);
-
-	writeln(ArrayString()); 
-	writeln(ArrayString(true, true));
-	writeln(ArrayString("1", "2"));
-	writeln(ArrayString(["1", "2"]));
-	writeln(ArrayString(true, true, ["1", "2"]));
 }

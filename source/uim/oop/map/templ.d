@@ -129,7 +129,6 @@ auto OOPMap(K, V)(V[K] values) { return DOOPMap!(K, V)(values); }
 unittest {
 	import std.stdio;
 
-	writeln("Testing uim.oop.map.templ...");
 	auto map = new MapTempl!(string, string);
 	map.items = ["1":"2", "3":"4"];
 	assert(map.items == ["1":"2", "3":"4"]);
@@ -155,11 +154,4 @@ unittest {
 	assert(map.hasAnyValues(["Z", "ZZZ"]) == false);
 	assert(map.hasValue("Y") == true);
 	assert(map.hasValue("Z") == false);
-
-	writeln(map.toStrings);
-	writeln(map.toStrings(`%s="%s"`));
-	writeln(map);
-
-	auto mapX = new MapTempl!(string, string);
-	writeln("MAPX", mapX);
 }

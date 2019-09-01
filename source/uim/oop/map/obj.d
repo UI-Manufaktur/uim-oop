@@ -16,7 +16,7 @@ class MapObj : Obj{
 }
 
 unittest {
-	writeln("Testing ", __MODULE__);
+	
 
 	auto map = new MapObj;
 }

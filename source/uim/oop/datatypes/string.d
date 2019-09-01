@@ -27,5 +27,5 @@ class DOOPString : DOOPSimpleObject {
 auto OOPString() { return new DOOPString; }
 
 unittest {
-	writeln("Testing ", __MODULE__);
+	
 }

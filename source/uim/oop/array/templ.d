@@ -137,33 +137,5 @@ class DArrayTempl(T) : DArrayObj {
 }
 
 unittest {
-	// writeln("Testing ", __MODULE__);
-
-	// auto a = new ArrayTempl!int([1, 2, 3, 2]);
-	// writeln(a.sorting.items);
-	// writeln(a.uniquing.items);
-	// assert(a.uniquing.items == [1, 2, 3]);
-
-	// a = new ArrayTempl!int(true, false, [1, 2, 3, 2]);
-	// //assert(a.items == [1, 2, 2, 3]);
-
-	// a = new ArrayTempl!int(true, true, [1, 2, 3, 2]);
-	// assert(a.items == [1, 2, 3]);
-
-	// assert(a.has(1));
-	// assert(!a.has(100));
-	// assert(a.hasAny([1, 2, 100]));
-	// assert(a.hasAll([1, 3]));
-
-	// assert(a.add([4, 5, 6]) == [1, 2, 3, 4, 5, 6]);
-	// assert(a.add(4) == [1, 2, 3, 4, 5, 6]);
-	// assert(a.remove(4) == [1, 2, 3, 5, 6]);
-	// assert(a.remove([1, 2]) == [3, 5, 6]);
-
-	// a.sorted = false;
-	// a.uniqued = false;
-	// auto b = a.dup;
-	// writeln(b.add(100));
-	// writeln(a);
 }
 

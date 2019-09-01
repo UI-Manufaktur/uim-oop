@@ -9,5 +9,5 @@ class DOOPObject {
 @safe auto OOPObject() { return new DOOPObject; }
 
 unittest {
-	writeln("Testing ", __MODULE__);
+	
 }

@@ -8,5 +8,5 @@ class DOOPComplexTempl(T) : DOOPComplexObj {
 auto OOPComplexTempl(T)() { return new DOOPComplexTempl!T; }
 
 unittest {
-	writeln("Testing ", __MODULE__);	
+		
 }

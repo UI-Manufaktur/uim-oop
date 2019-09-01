@@ -8,5 +8,5 @@ class DOOPSimpleTempl(T) : DOOPSimpleObject {
 auto OOPSimpleTempl(T)() { return new DOOPSimpleTempl!T; }
 
 unittest {
-	writeln("Testing ", __MODULE__);
+	
 }

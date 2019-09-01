@@ -42,32 +42,8 @@ class PropertyObj : Element {
 	@safe override string toString() { return toJson.toString; };
 }
 mixin(ShortCutElement!("PROPERTYOBJ", "PropertyObj")); 
-//auto PROPERTY(string aName, string aType) { return new Property(aName, aType); }
-
-//class PropertyTempl(T) : Property {
-//	mixin(ThisElement!()); 
-//	this(T)(string aName, T aDefault) { super(aName); this.defaultValue = aDefault; this.value = defaultValue; }
-//
-//	T _value;
-//	@property T value() { return _value; }
-//	@property O value(this O)(T newValue) { _value = newValue; return cast(O)this; }
-//
-//	void opAssign(T newValue) {
-//		this.value = newValue;
-//	}
-//}
 
 unittest {
 	assert(PROPERTYOBJ("Test").name == "Test");
 	assert(PROPERTYOBJ("Test").name("newName").name == "newName");
-//	writeln(new PropertyTempl!string("Test").type);
-//	writeln(new PropertyTempl!Property("Test").type);
-//	auto p = new PropertyTempl!int("Test", 0);
-//	p = 2;
-//	writeln(p.value);
-//
-//	Property[string] props;
-//	props["Test"] = new PropertyTempl!string("Test");
-//	props["X"] = new PropertyTempl!int("Test", 0);
-//	writeln(props);
 }

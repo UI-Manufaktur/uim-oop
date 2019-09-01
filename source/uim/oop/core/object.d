@@ -7,19 +7,6 @@ class Obj {
 	@safe this() { init; }
 
 	@safe void init(this O)() {
-		////		foreach (memberName; __traits(allMembers, O)) {
-		//			enum name = "this."~memberName;
-		//
-		//			foreach (attr; __traits(getAttributes, mixin(name))) {
-		//				writef("Attributes of %s", name);
-		//				write(attr.stringof);
-		//				//					if (attr.stringof == "UI5_Property") { mixin(LinkUI5PROPERTY!memberName);}
-		//				//					if (attr.stringof == "UI5_Event") { mixin(LinkUI5EVENT!memberName);}
-		//				//					if (attr.stringof == "UI5_Aggregation") { mixin(LinkUI5AGGREGATION!memberName);}
-		//				//					if (attr.stringof == "UI5_Association") { mixin(LinkUI5ASSOCIATION!memberName);}
-		//				writeln;
-		//			}
-		//		}
 	}
 
 	mixin(PropertyDefinition!("PropertyObj[string]", "_properties", "properties")); 
@@ -140,26 +127,4 @@ unittest {
 		mixin(OOPAGGREGATION!("counterAGG", "string"));
 		mixin(OOPASSOCIATION!("counterASS", "string"));
 	}
-
-	auto obj = OBJ;
-	//	writeln(obj.namespace);
-	//	writeln(obj.classname);
-	//	writeln(obj.fullname);
-	//	writeln(obj.fullpath);
-	//	writeln(obj);
-	//
-	//	obj.add(PROPERTY("start"));
-	//writeln(obj);
-	//
-	//obj.remove(PROPERTY("start"));
-	//writeln(obj);
-	//
-	//obj.add(PROPERTY("start"));
-	//writeln(obj);
-
-//	obj.remove(obj.properties["start"]);
-//	writeln(obj);
-//
-	auto testclass = new TestClass;
-	writeln(testclass);
 }

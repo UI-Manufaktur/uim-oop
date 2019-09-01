@@ -48,11 +48,6 @@ auto ArrayObj() { return new DArrayObj(); }
 auto ArrayObj(bool sortedMode, bool uniqueMode) { return new DArrayObj(sortedMode, uniqueMode); }
 
 unittest {
-	writeln(ArrayObj.namespace);
-	writeln(ArrayObj.classname);
-	writeln(ArrayObj.fullname);
-	writeln(ArrayObj.fullpath);
-
 	assert(ArrayObj.empty);
 	assert(ArrayObj(true, true).sorted);
 	assert(!ArrayObj(false, true).sorted);
