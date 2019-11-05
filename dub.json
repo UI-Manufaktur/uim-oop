@@ -7,7 +7,7 @@
 	"targetName": "uim-oop",
     "targetType": "library",
 	"dependencies": {
-		"vibe-d:data": "~>0.8.5",
-		"uim-core": "==0.19.9"
+		"vibe-d:data": "==0.8.6",
+		"uim-core": "==0.19.11"
 	}
 }
