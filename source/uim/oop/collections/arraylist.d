@@ -8,5 +8,10 @@ class DOOPArrayList(T) : IOOPCollection {
 	T[] _items;
 
 	size_t count() { return items.length; }
+	unittest { /// TODO 
+	}
 }
 auto OOPArrayList(T)() { return new DOOPArrayList!T; } 
+
+unittest { /// TODO 
+}

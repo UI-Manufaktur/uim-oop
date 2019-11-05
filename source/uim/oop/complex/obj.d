@@ -2,7 +2,7 @@
 
 import uim.oop;
 
-class DOOPComplexObj : DOOPObject {
+class DOOPComplexObj : DOPObject {
 	this() { super(); }
 }
 auto OOPComplexObj() { return new DOOPComplexObj; }

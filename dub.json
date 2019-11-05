@@ -8,6 +8,6 @@
     "targetType": "library",
 	"dependencies": {
 		"vibe-d:data": "~>0.8.5",
-		"uim-core": "~>0.19.9"
+		"uim-core": "==0.19.9"
 	}
 }

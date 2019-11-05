@@ -2,8 +2,10 @@
 
 import uim.oop;
 
-class DOOPSimpleObject : DOOPObject {
+class DOOPSimpleObject : DOPObject {
 	this() { super(); }
 }
 auto OOPSimpleObject() { return new DOOPSimpleObject; }
 
+unittest { /// TODO 
+}

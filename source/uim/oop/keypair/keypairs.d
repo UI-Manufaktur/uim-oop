@@ -2,11 +2,7 @@
 
 import uim.oop;
 
-class keypairs
-{
-	this()
-	{
-		// Constructor code
-	}
+class DOPKeypairs { 
+	
 }
 

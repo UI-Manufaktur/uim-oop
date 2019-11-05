@@ -19,6 +19,8 @@ class DOOPString : DOOPSimpleObject {
 
 	bool empty() { return (_value.length == 0); }
 	O empty(this O)(bool setEmpty) { if (setEmpty) _value = ""; return cast(O)this; }
+	unittest { /// TODO 
+	}
 
 	override string toString() {
 		return _value;
@@ -26,6 +28,5 @@ class DOOPString : DOOPSimpleObject {
 }
 auto OOPString() { return new DOOPString; }
 
-unittest {
-	
+unittest { /// TODO 
 }
