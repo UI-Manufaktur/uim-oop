@@ -1,13 +1,20 @@
 {
-	"name": "uim-oop",
-	"authors": [ "UI Manufaktur" ],
-	"description": "OOP library for D",
-	"copyright": "Copyright © 2019, UI Manufaktur UG",
-	"license": "Apache 2.0",
-	"targetName": "uim-oop",
+    "name": "uim-oop",
+    "authors": ["UI Manufaktur"],
+    "description": "OOP library for D",
+    "copyright": "Copyright © 2017-2020, UI Manufaktur UG",
+    "license": "Apache 2.0",
+    "targetName": "uim-oop",
     "targetType": "library",
-	"dependencies": {
-		"vibe-d:data": "==0.8.6",
-		"uim-core": "==0.19.11"
-	}
+    "dependencies": {
+        "vibe-d": "~>0.9.0-alpha.3"
+    },
+    "sourcePaths": [
+        "../uim-core",
+        "./"
+    ],
+    "importPaths": [
+        "../uim-core",
+        "./"
+    ]
 }
