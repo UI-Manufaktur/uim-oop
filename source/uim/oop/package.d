@@ -18,6 +18,3 @@ public import uim.oop.properties;
 public import uim.oop.values;
 public import uim.oop.keypair;	
 public import uim.oop.collections;	
-
-unittest {
-}

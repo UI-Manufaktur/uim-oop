@@ -8,6 +8,6 @@
     "targetType": "library",
     "dependencies": {
         "vibe-d": "~>0.9.0-alpha.4",
-        "uim-core": "~>0.20.4"
+        "uim-core": "~master"
     }
 }
