@@ -43,7 +43,7 @@ class DMapString : MapTempl!(string, string) {
 		}
 		return result;
 	}
-	override Json toJson() {
+	/* override Json toJson() {
 		auto result = super.toJson;
 		if (empty) return result;
 		
@@ -51,7 +51,7 @@ class DMapString : MapTempl!(string, string) {
 			result["k"] = this[k];
 		}
 		return result;
-	}
+	} */
 	override string toCSS() {
 		if (empty) return "";
 		

@@ -2,11 +2,11 @@
 
 import uim.oop;
 
-class DOPObject {
+class DOOPObject {
 	@safe this() { _init; }
 	@safe protected void _init() {}
 }
-@safe auto OPObject() { return new DOPObject; }
+@safe auto OOPObject() { return new DOOPObject; }
 
 unittest {
 	

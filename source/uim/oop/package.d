@@ -2,9 +2,13 @@
 
 public import std.stdio;
 public import std.string;
+public import std.conv;
+public import std.random;
+public import std.uuid;
 
 public import uim.core;
 public import uim.oop.annotations;
+public import uim.oop.models;
 public import uim.oop.mixins;
 
 public import uim.oop.obj;

@@ -13,7 +13,7 @@ class Element {
 
 	mixin(PropertyDefinition!("string", "_name", "name", true, true));
 
-	@safe Bson toBson() {
+/* 	@safe Bson toBson() {
 		Bson result = Bson.emptyObject;
 
 		return result;
@@ -26,9 +26,9 @@ class Element {
 //		result["namespace"] = namespace;
 		return result;
 	}
-
+ */
 	@safe override string toString() {
-		return toJson.toString;
+		return `{"name":"%s"}`.format(_name);
 	}
 }
 @safe auto ELEMENT() { return new Element; }

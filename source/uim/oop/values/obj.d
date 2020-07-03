@@ -2,7 +2,7 @@
 
 import uim.oop;
 
-//class Value : DOPObject {
+//class Value : DOOPObject {
 //	this() {
 //	super();
 //	}

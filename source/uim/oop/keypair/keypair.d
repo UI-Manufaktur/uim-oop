@@ -5,24 +5,24 @@ import uim.oop;
 class DOPKeypair {
 	this() {
 	}
-	this(DOPObject aKey) { this().key(aKey); }
-	this(DOPObject aKey, DOPObject aValue) { this().key(aKey).value(aValue); }
+	this(DOOPObject aKey) { this().key(aKey); }
+	this(DOOPObject aKey, DOOPObject aValue) { this().key(aKey).value(aValue); }
 
-	DOPObject _key;
+	DOOPObject _key;
 	auto key() { return _key; }
-	O key(this O)(DOPObject newKey) { _key = newKey; return cast(O)this; }
+	O key(this O)(DOOPObject newKey) { _key = newKey; return cast(O)this; }
 	unittest { /// TODO 
 	}
 
-	DOPObject _value;
+	DOOPObject _value;
 	auto value() { return _value; }
-	O value(this O)(DOPObject newValue) { _value = newValue; return cast(O)this; }
+	O value(this O)(DOOPObject newValue) { _value = newValue; return cast(O)this; }
 	unittest { /// TODO 
 	}
 }
 auto OPKeypair() { return new DOPKeypair; }
-auto OPKeypair(DOPObject aKey) { return new DOPKeypair(aKey); }
-auto OPKeypair(DOPObject aKey, DOPObject aValue) { return new DOPKeypair(aKey, aValue); }
+auto OPKeypair(DOOPObject aKey) { return new DOPKeypair(aKey); }
+auto OPKeypair(DOOPObject aKey, DOOPObject aValue) { return new DOPKeypair(aKey, aValue); }
 
 unittest { /// TODO 
 }

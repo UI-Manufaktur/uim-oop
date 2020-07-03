@@ -3,12 +3,12 @@
 import uim.oop;
 
 // Represents a non-generic collection of objects that can be individually accessed by index.
-interface IOOPList(T = DOPObject) : IOOPCollection {
+interface IOOPList(T = DOOPObject) : IOOPCollection {
 	T item(size_t index); 
 	O item(this O)(size_t index, T value); 
 }
 
-class DOOPList(T = DOPObject) : IOOPCollection {
+class DOOPList(T = DOOPObject) : IOOPCollection {
 	this() {}
 	T item(size_t index) { return null; } 
 	O item(this O)(size_t index, T value) { return cast(O)this; } 

@@ -59,7 +59,7 @@ class Obj {
 		return cast(O)this;
 	}
 
-	Json toJson() {
+/* 	Json toJson() {
 		auto result = Json.emptyObject;
 		result["Fullname"] = fullname;
 		result["Properties"] = _properties.toJson;
@@ -69,13 +69,13 @@ class Obj {
 		result["Associations"] = _associations.toJson;
 		
 		return result;
-	}
+	} */
 
-	override string toString() { return toJson.toString; }
+	override string toString() { return super.toString; }
 }
 @safe auto OBJ() { return new Obj; }
 
-@safe auto toJson(PropertyObj[string] keyPairs) {
+/* @safe auto toJson(PropertyObj[string] keyPairs) {
 	auto result = Json.emptyObject;
 	foreach(k, v; keyPairs) { result[k] = v.toJson; }
 	return result;
@@ -102,7 +102,7 @@ class Obj {
 	foreach(k, v; keyPairs) { result[k] = v.toJson; }
 	return result;
 } 
-
+ */
 unittest {
 	class TestClass : Obj {
 		this() { super(); init;  }

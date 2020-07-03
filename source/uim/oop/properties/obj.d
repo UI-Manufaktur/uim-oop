@@ -21,7 +21,7 @@ class PropertyObj : Element {
 	mixin(PropertyDefinition!("string", "_defaultValue", "defaultValue"));
 	mixin(PropertyDefinition!("bool", "_readOnly", "readOnly"));
 
-	@safe override Bson toBson() {
+/* 	@safe override Bson toBson() {
 		Bson result = super.toBson;
 		result["datatype"] = _datatype;
 		result["defaultValue"] = _defaultValue;
@@ -38,8 +38,8 @@ class PropertyObj : Element {
 
 		return result;
 	}
-
-	@safe override string toString() { return toJson.toString; };
+ */
+	@safe override string toString() { return super.toString; };
 }
 mixin(ShortCutElement!("PROPERTYOBJ", "PropertyObj")); 
 

@@ -10,12 +10,12 @@ template OOPMETHOD(string name, string datatype = "") {
 class Method : Element { 
 	mixin(ThisElement!()); 
 
-	@safe override Json toJson() {
+/* 	@safe override Json toJson() {
 		auto result = super.toJson;
 		result["name"] = _name;
 		return result;
 	}
-}
+ */}
 mixin(ShortCutElement!("METHOD", "Method")); 
 
 unittest {
