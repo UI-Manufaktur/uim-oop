@@ -1,20 +1,10 @@
-﻿module uim.oop.values.obj;
+﻿module uim.oop.values.value;
 
 import uim.oop;
 
-//class Value : DOOPObject {
-//	this() {
-//	super();
-//	}
-//}
-//
-//class ValueTempl(T) : Value {
-// T value;
-// 
-//	this() {
-//	super();
-//	}
-//}
+class DValue {
+	this() {}
+}
 
 //class Integer : ValueTempl(T) {
 //	this() {

@@ -1,4 +1,8 @@
-﻿module uim.oop.mixins;
+module uim.oop.mixins;
+
+import uim.oop;
+
+public import uim.oop.mixins.properties;
 
 template PropertyDefinition(string datatype, string field, string propertyName, bool get = true, bool set = true, string defaultValue = null, string condition = null) {
 	const char[] fieldDefinition = datatype~" "~field~(defaultValue.length>0?"="~defaultValue:"")~"; ";

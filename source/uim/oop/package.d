@@ -10,6 +10,7 @@ public import uim.core;
 public import uim.oop.annotations;
 public import uim.oop.models;
 public import uim.oop.mixins;
+public import uim.oop.values;
 
 public import uim.oop.obj;
 public import uim.oop.core;

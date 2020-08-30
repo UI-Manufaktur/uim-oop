@@ -40,5 +40,4 @@ auto OOPModel() { return new DOOPModel; }
 
 unittest {
   auto oopModel = OOPModel;
-  writeln(oopModel.toJSONString);
 }
