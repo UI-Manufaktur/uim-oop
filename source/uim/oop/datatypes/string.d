@@ -1,4 +1,4 @@
-﻿module source.uim.oop.datatypes.string;
+﻿module uim.oop.datatypes.string;
 
 import uim.oop;
 

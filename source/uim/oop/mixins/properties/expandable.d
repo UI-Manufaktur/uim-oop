@@ -3,11 +3,15 @@ module uim.oop.mixins.properties.expandable;
 import std.string;
 import uim.core;
 
+// Mixin for expandable string datatypes
 template XString(string name) {
 	const char[] XString = "
 	string _"~name~";
 	@safe auto "~name~"() { return _"~name~"; }
-	@safe O "~name~"(this O)(string[] addValues...) { foreach(v; addValues) _"~name~" ~= v; return cast(O)this; }
+
+	@safe O "~name~"(this O)(string[] addValues...) { this."~name~"(addValues); return cast(O)this; }
+	@safe O "~name~"(this O)(string[] addValues) { _"~name~" ~= addValues.join(); return cast(O)this; }
+
 	@safe O clear"~name.capitalize~"(this O)() { _"~name~" = null; return cast(O)this; }	
 	";
 }
@@ -16,26 +20,25 @@ unittest {
 	assert((new Test).a("x").a == "x");
 	assert((new Test).a("x").a("x").a == "xx");
 	assert((new Test).a("x", "x").a == "xx");
+	assert((new Test).a(["x", "x"]).a == "xx");
 	assert((new Test).a("x").clearA.a == "");
 }
 
+// Mixin for expandable string array datatypes
 template XStringArray(string name) {
+	const char[] Name = name.capitalize;
 	const char[] XStringArray = "
 	string[] _"~name~";
 	@safe auto "~name~"() { return _"~name~"; }
+
 	@safe O "~name~"(this O)(string[] values...) { this."~name~"(values); return cast(O)this; }
-	@safe O "~name~"(this O)(string[] values) { 
-		_"~name~" ~= values; 
-		return cast(O)this; }
+	@safe O "~name~"(this O)(string[] values) { _"~name~" ~= values; return cast(O)this; }
 	
-	@safe O remove"~name.capitalize~"(this O)(string[] values...) { 
-		this.remove"~name.capitalize~"(values); 
-		return cast(O)this; }	
-	@safe O remove"~name.capitalize~"(this O)(string[] values) {
-		foreach(value; values) _"~name~" = _"~name~".sub(value);
-		return cast(O)this; }	
+	@safe O remove"~Name~"(this O)(string[] values...) { this.remove"~Name~"(values); return cast(O)this; }	
+	@safe O remove"~Name~"(this O)(string[] values) {
+		foreach(value; values) _"~name~" = _"~name~".sub(value); return cast(O)this; }	
 	
-	@safe O clear"~name.capitalize~"(this O)() { _"~name~" = null; return cast(O)this; }	
+	@safe O clear"~Name~"(this O)() { _"~name~" = null; return cast(O)this; }	
 	";
 }
 unittest {
@@ -52,7 +55,9 @@ unittest {
 	//assert((new Test).a(["a", "b", "c"]).removeA(["a"], true).a == ["b", "c"]);
 }
 
+// Mixin for expandable string associative array datatypes
 template XStringAA(string name) {
+	const char[] Name = name.capitalize;
 	const char[] XStringAA = "
 	string[string] _"~name~";
 	@safe auto "~name~"() { return _"~name~"; }
@@ -60,10 +65,10 @@ template XStringAA(string name) {
 	@safe O "~name~"(this O)(string key, string value) { _"~name~"[key] = value; return cast(O)this; }
 	@safe O "~name~"(this O)(string[string] addValues) { foreach(kv; addValues.byKeyValue) _"~name~"[kv.key] = kv.value; return cast(O)this; }
 	
-	@safe O remove"~name.capitalize~"(this O)(string[] values...) { this.remove(values); return cast(O)this; }	
-	@safe O remove"~name.capitalize~"(this O)(string[] values) { foreach(value; values) _name = _"~name~".remove(value); return cast(O)this; }	
+	@safe O remove"~Name~"(this O)(string[] values...) { this.remove(values); return cast(O)this; }	
+	@safe O remove"~Name~"(this O)(string[] values) { foreach(value; values) _name = _"~name~".remove(value); return cast(O)this; }	
 	
-	@safe O clear"~name.capitalize~"(this O)() { _"~name~" = null; return cast(O)this; }	
+	@safe O clear"~Name~"(this O)() { _"~name~" = null; return cast(O)this; }	
 	";
 }
 unittest {
@@ -118,13 +123,4 @@ unittest {
   assert((new Test).a([1, 2, 3, 1]).removeA(1).a == [2, 3, 1]);
 	assert((new Test).a([1, 2, 3, 1]).removeA([1]).a == [2, 3, 1]);  */
  	//assert((new Test).a(["a", "b", "c"]).removeA(["a"], true).a == ["b", "c"]);
-}
-
-template XPropertyString(string datatype, string name) {
-	const char[] Name = capitalize(name);
-	const char[] XPropertyString = `
-	`~datatype~` _`~name~`; 
-	@safe auto `~name~`() { return _`~name~`; }
-	@safe O clear`~Name~`(this O)() { _`~name~` = ""; return cast(O)this; }
-	@safe O `~name~`(this O)(`~datatype~` value) { _`~name~` ~= value; return cast(O)this; }`;
 }

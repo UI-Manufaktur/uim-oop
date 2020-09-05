@@ -40,9 +40,7 @@ template OProperty(string dataType, string propertyName, string defaultValue = n
 	@property O "~propertyName~"(this O)("~dataType~" newValue) { "~setFkt~" return cast(O)this; }";
 }
 unittest {
-	class Test {
-		mixin(OProperty!("string", "name", "`someThing`"));
-	}
+	class Test {mixin(OProperty!("string", "name", "`someThing`"));}
 	assert((new Test).name == "someThing");
 	assert((new Test).name("test").name == "test");
 	assert((new Test).name("test").name("test2").name == "test2");
