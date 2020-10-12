@@ -78,20 +78,35 @@ unittest {
 	assert((new Test).a("a", "x").clearA.a == null);
 }
 
-template XPropertyAA(string datatype, string name) {
+template XPropertyAA(string key, string value, string name) {
 	const char[] Name = capitalize(name);
-	const char[] XPropertyAA = `
-	`~datatype~`[string] _`~name~`; 
+	const char[] datatype = value~`[`~key~`]`;
+
+	const char[] XPropertyAA = `	`~datatype~` _`~name~`; 
 	@safe auto `~name~`() { return _`~name~`; }
 
-	@safe O `~name~`(this O)(string name, `~datatype~` value) { _`~name~`[name] = value; return cast(O)this; }
-	@safe O `~name~`(this O)(`~datatype~`[string] values) { foreach(kv; values.byKeyValue) _`~name~`[kv.key] = kv.value; return cast(O)this; }
+	@safe auto `~name~`(this O)(`~key~`[] keys...) { return this.`~name~`(keys); }
+	@safe auto `~name~`(this O)(`~key~`[] keys) { return _`~name~`.select(keys); }
 
-	@safe O remove`~Name~`(this O)(string name) { _`~name~`.remove(name); return cast(O)this; }
-	@safe O remove`~Name~`(this O)(string name) { _`~name~`.remove(name); return cast(O)this; }
+	@safe O `~name~`(this O)(`~datatype~` values) { _`~name~` = _`~name~`.add(values); return cast(O)this; }
+
+	@safe O `~name~`Init(this O)(`~key~`[] keys, `~value~` value) { foreach(k; keys) _`~name~`[k] = value; return cast(O)this; }
+	@safe O `~name~`Add(this O)(`~datatype~` values) { _`~name~` = _`~name~`.add(values); return cast(O)this; }
+	@safe O `~name~`Sub(this O)(`~datatype~` values) { _`~name~` = _`~name~`.sub(values); return cast(O)this; }
+
+	@safe O remove`~Name~`(this O)(`~key~`[] keys...) { return this.remove`~Name~`(keys); return cast(O)this; }
+	@safe O remove`~Name~`(this O)(`~key~`[] keys) { _`~name~` = _`~name~`.sub(keys); return cast(O)this; }
 
 	@safe O clear`~Name~`(this O)() { _`~name~` = _`~name~`.clear; return cast(O)this; }
 `;
+}
+unittest {
+	class Test { mixin(XPropertyAA!("int", "double", "a")); }
+ 	assert((new Test).a([1:1.0]).a[1] == 1.0);
+ 	assert((new Test).a([1:1.0]).a.hasKey(1));
+ 	assert((new Test).a([1:1.0]).a([2:3.0]).a.hasKey(2));
+ 	assert(!(new Test).a([1:1.0, 2:3.0]).aSub([2:3.0]).a.hasKey(2));
+ 	assert((new Test).aInit([1, 2], 1.0).a[1] == 1.0);
 }
 
 template XPropertyArray(string datatype, string name) {

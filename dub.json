@@ -6,12 +6,10 @@
     "license": "MIT",
     "targetName": "uim-oop",
     "targetType": "library",
-	"sourcePaths": [
-		"../uim-core",
-		"./"
-	],
-	"importPaths": [
-		"../uim-core",
-		"./"	
-    ]
+    "dependencies": {
+        "uim-core": {
+            "repository":"git+https://github.com/UI-Manufaktur/uim-core.git",
+            "version":"d75d7d4de04b34c92f521b9686a754f0d348990d"
+        }
+    }
 }
