@@ -31,13 +31,8 @@ template OProperty(string dataType, string propertyName, string defaultValue = n
 	protected "~dataType~" _"~propertyName~(defaultValue.length > 0 ? " = "~defaultValue : "")~";
 	protected "~dataType~" _default"~propertyName~(defaultValue.length > 0 ? " = "~defaultValue : "")~";
 	
-	auto "~propertyName~"Default() { return _default"~propertyName~"; }
-	O "~propertyName~"Reset(this O)() { _"~propertyName~" = _default"~propertyName~"; return cast(O)this; }
-	O "~propertyName~"Default(this O)("~dataType~" v) { _default"~propertyName~" = v; return cast(O)this; }
-	bool "~propertyName~"IsDefault() { return (_"~propertyName~" == _default"~propertyName~"); }
-
-	@property "~dataType~" "~propertyName~"() { "~getFkt~" }
-	@property O "~propertyName~"(this O)("~dataType~" newValue) { "~setFkt~" return cast(O)this; }";
+	@safe @property "~dataType~" "~propertyName~"() { "~getFkt~" }
+	@safe @property O "~propertyName~"(this O)("~dataType~" newValue) { "~setFkt~" return cast(O)this; }";
 }
 unittest {
 	class Test {mixin(OProperty!("string", "name", "`someThing`"));}
@@ -55,13 +50,8 @@ template TProperty(string dataType, string propertyName, string defaultValue = n
 	protected "~dataType~" _"~propertyName~(defaultValue.length > 0 ? " = "~defaultValue : "")~";
 	protected "~dataType~" _default"~propertyName~(defaultValue.length > 0 ? " = "~defaultValue : "")~";
 	
-//	O "~propertyName~"Reset(this O)() { _"~propertyName~" = _default"~propertyName~"; return cast(O)this;}
-//	auto "~propertyName~"Default() { return _default"~propertyName~"; }
-//	O "~propertyName~"Default(this O)("~dataType~" newValue) { _default"~propertyName~" = newValue; return cast(O)this; }
-//	bool "~propertyName~"IsDefault() { return (this._"~propertyName~" == _default"~propertyName~"); }
-
-	@property "~dataType~" "~propertyName~"(this O)() { "~getFkt~" }
-	@property O "~propertyName~"(this O)("~dataType~" newValue) { "~setFkt~" return cast(O)this; }";
+	@safe @property "~dataType~" "~propertyName~"(this O)() { "~getFkt~" }
+	@safe @property O "~propertyName~"(this O)("~dataType~" newValue) { "~setFkt~" return cast(O)this; }";
 }
 
 template TPropertyAA(string keyDataType, string valueDataType, string propertyName, string defaultValue = null, string get = null, string set = null) {
@@ -73,13 +63,8 @@ template TPropertyAA(string keyDataType, string valueDataType, string propertyNa
 	protected "~aaDataType~" _"~propertyName~(defaultValue.length > 0 ? " = "~defaultValue : "")~";
 	protected "~aaDataType~" _default"~propertyName~(defaultValue.length > 0 ? " = "~defaultValue : "")~";
 	
-	O "~propertyName~"Reset(this O)() { _"~propertyName~" = _default"~propertyName~"; return cast(O)this;}
-	auto "~propertyName~"Default() { return _default"~propertyName~"; }
-	O "~propertyName~"Default(this O)("~aaDataType~" newValue) { _default"~propertyName~" = newValue; return cast(O)this; }
-	bool "~propertyName~"IsDefault() { return (this._"~propertyName~" == _default"~propertyName~"); }
-
-	@property "~aaDataType~" "~propertyName~"(this O)() { "~getFkt~" }
-	@property O "~propertyName~"(this O)("~aaDataType~" newValue) { "~setFkt~" return cast(O)this; }
+	@safe @property "~aaDataType~" "~propertyName~"(this O)() { "~getFkt~" }
+	@safe @property O "~propertyName~"(this O)("~aaDataType~" newValue) { "~setFkt~" return cast(O)this; }
 	O "~propertyName~"(this O)("~keyDataType~" key, "~valueDataType~" value) { _"~propertyName~"[key] = value; return cast(O)this; }
 	O "~propertyName~"Add(this O)("~aaDataType~" values) { foreach(k,v;values) _"~propertyName~"[k] = v; return cast(O)this; }";
 }
