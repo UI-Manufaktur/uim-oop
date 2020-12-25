@@ -1,15 +1,15 @@
 {
-    "name": "uim-oop",
-    "authors": ["UI Manufaktur Team"],
-    "description": "OOP library for D",
-    "copyright": "Copyright © 2017-2020, UI Manufaktur UG",
-    "license": "MIT",
-    "targetName": "uim-oop",
-    "targetType": "library",
-    "dependencies": {
-        "uim-core": {
-            "repository":"git+https://github.com/UI-Manufaktur/uim-core.git",
-            "version":"bf470b5e884d7a1e8711cedae5e26ddc01cbcfde"
-        }
-    }
+	"authors": [
+		"UI Manufaktur Team"
+	],
+	"copyright": "Copyright © 2017-2020, UI Manufaktur UG",
+	"dependencies": {
+		"vibe-d": "~>0.9.2",
+		"uim-core": "~>0.20.12"
+	},
+	"description": "OOP library for D",
+	"license": "MIT",
+	"name": "uim-oop",
+	"targetName": "uim-oop",
+	"targetType": "library"
 }

@@ -32,7 +32,8 @@ template OProperty(string dataType, string propertyName, string defaultValue = n
 	protected "~dataType~" _default"~propertyName~(defaultValue.length > 0 ? " = "~defaultValue : "")~";
 	
 	@safe @property "~dataType~" "~propertyName~"() { "~getFkt~" }
-	@safe @property O "~propertyName~"(this O)("~dataType~" newValue) { "~setFkt~" return cast(O)this; }";
+	@safe protected void _set"~propertyName~"("~dataType~" newValue) { "~setFkt~" }
+	@safe @property O "~propertyName~"(this O)("~dataType~" newValue) { _set"~propertyName~"(newValue); return cast(O)this; }";
 }
 unittest {
 	class Test {mixin(OProperty!("string", "name", "`someThing`"));}

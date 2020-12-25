@@ -1,15 +1,23 @@
 ﻿module uim.oop;
 
+// Phobos libraries
+public import std.conv;
+public import std.datetime;
+public import std.random;
 public import std.stdio;
 public import std.string;
-public import std.conv;
-public import std.random;
 public import std.uuid;
 
+// External libraries
+public import vibe.vibe;
+
+// UIM libraries
 public import uim.core;
+
+// uim-oop packages/modules
 public import uim.oop.annotations;
-public import uim.oop.models;
-public import uim.oop.mixins;
+/* public import uim.oop.models;
+ */public import uim.oop.mixins;
 public import uim.oop.values;
 
 public import uim.oop.obj;
