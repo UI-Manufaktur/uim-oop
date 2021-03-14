@@ -38,8 +38,15 @@ import uim.oop;
     .id(myId)
     .name(myName); }
 
+  this(Json aJson) { 
+    this();    
+
+    this
+    .fromJson(aJson); }
+
   // Every entity has a unique id as a primary key
   mixin(SProperty!("UUID", "id"));
+  O id(this O)(string anUuid) { return this.id(UUID(anUuid)); }
   unittest {
     auto id1 = randomUUID;
     assert(OOPEntity.id(id1).id == id1);
@@ -67,6 +74,7 @@ import uim.oop;
 
   ///   createdBy	Unique identifier of the user who created the entity.	
   mixin(SProperty!("UUID", "createdBy"));
+  O createdBy(this O)(string anUuid) { return this.createdBy(UUID(anUuid)); }
 
   ///	Date and time when the entity was modified.	
   mixin(SProperty!("long", "modifiedOn"));
@@ -76,6 +84,7 @@ import uim.oop;
 
   ///	Unique identifier of the user who modified the entity.
   mixin(SProperty!("UUID", "modifiedBy"));
+  O modifiedBy(this O)(string anUuid) { return this.modifiedBy(UUID(anUuid)); }
 
   ///	Description about the entity and more
   mixin(SProperty!("string", "description"));
@@ -95,6 +104,7 @@ import uim.oop;
 
   ///	Unique identifier of the user who modified the entity.
   mixin(SProperty!("UUID", "lockedBy"));
+  O lockedBy(this O)(string anUuid) { return this.lockedBy(UUID(anUuid)); }
 
   ///	Date and time when the entity is deleted.	
   mixin(SProperty!("bool", "isDeleted"));
@@ -106,6 +116,7 @@ import uim.oop;
 
   ///	Unique identifier of the user who deleted the entity.
   mixin(SProperty!("UUID", "deletedBy"));
+  O deletedBy(this O)(string anUuid) { return this.deletedBy(UUID(anUuid)); }
 
 
 /* 
@@ -137,6 +148,23 @@ import uim.oop;
   } */ 
 
   Bson toBson() { return Bson(toJson); }
+
+  void fromJson(Json aJson) {
+    this
+    .id(aJson["id"].get!string)
+    .name(aJson["name"].get!string)
+    .createdOn(aJson["createdOn"].get!long)
+    .createdBy(aJson["createdBy"].get!string)
+    .modifiedOn(aJson["modifiedOn"].get!long)
+    .modifiedBy(aJson["modifiedBy"].get!string)
+    .description(aJson["description"].get!string)
+    .isLocked(aJson["isLocked"].get!bool)
+    .lockedOn(aJson["lockedOn"].get!long)
+    .lockedBy(aJson["lockedBy"].get!string)
+    .isDeleted(aJson["isDeleted"].get!bool)
+    .deletedOn(aJson["deletedOn"].get!long)
+    .deletedBy(aJson["deletedBy"].get!string);
+  }
 
   Json toJson() {
     auto result = Json.emptyObject;

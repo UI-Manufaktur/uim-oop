@@ -14,7 +14,7 @@ import uim.oop;
     // 
   }
 
-  /// Attclass from which it inherits
+  /// Objclass from which it inherits
   mixin(EProperty!("DOOPObjclass", "objclass"));
   unittest {
     /// TODO
@@ -53,6 +53,18 @@ import uim.oop;
   unittest {
     // assert(OOPObjclass.createObj("test"));
   }
+
+
+  override void fromJson(Json aJson) {
+    super.fromJson(aJson);
+    
+ /*       this
+    .versionMinor(aJson["versionMinor"].get!long)
+    .versionMajor(aJson["versionMajor"].get!long)
+    .versionOn(aJson["versionOn"].get!long)
+    .versionBy(aJson["versionBy"].get!string)
+    .versionDescription(aJson["VersionDescription"].get!string);
+  */ }
 
   /** 
   * Convert data to json (using vibe's funcs)

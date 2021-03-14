@@ -20,6 +20,19 @@ import uim.oop;
   protected DOOPStoreObjects _storeObjects;
   @property auto objects() { return _storeObjects; }
 
+
+
+  mixin(SProperty!("string", "storage"));
+
+  MongoClient _mgClient;
+  string _mgDBName;
+  O storage(this O)(MongoClient client, string dbName) {
+    _storage = "MongoDB";
+    _mgClient = client;
+    _mgDBName = dbName;
+    return cast(O)this;
+  }
+
   mixin(SProperty!("UUID", "id"));
   mixin(SProperty!("string", "name"));
   unittest {
@@ -94,6 +107,17 @@ import uim.oop;
  
   return result;   
  }
+
+  // Insert or Update
+  O save(this O)() {
+    auto selectorId = parseJsonString(`{ "id": "%s" }`.format(this.id));
+    auto selector = parseJsonString(`{ "$or": [ { "id": "%s" }, { "name": "%s" } ] }`.format(this.id, this.name));
+    auto collection = _mgClient.getCollection(_mgDBName~".models");
+    auto found = collection.find(selector);
+    if (!found.empty) collection.update(selectorId, this.toJson);
+    else collection.insert(this.toJson);
+    return cast(O)this;
+  }
 }
 @safe auto OOPModel() { return new DOOPModel; }
 @safe auto OOPModel(string modelName) {  return new DOOPModel(modelName); }

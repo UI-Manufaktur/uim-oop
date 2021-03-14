@@ -6,16 +6,28 @@ import uim.oop;
   this() { 
     super("attclass-"~this.id.toString); }
   this(UUID myId) { 
-    super(myId); }
+    this(); 
+    this.id(myId); }
   this(string myName) { 
-    super(myName); }
+    this(); 
+    this.name(myName); }
   this(UUID myId, string myName) { 
-    super(myId, myName); }
+    this(); 
+    this
+    .id(myId)
+    .name(myName); }
 
   this(DOOPObjclass myObjclass) { 
     this(); 
-    this.objclass(myObjclass);
-    this.model(myObjclass.model); }
+    this
+    .objclass(myObjclass)
+    .model(myObjclass.model); }
+
+  this(Json aJson) { 
+    this();    
+
+    this
+    .fromJson(aJson); }
 
   mixin(SProperty!("DOOPModel", "model"));
 
