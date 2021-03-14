@@ -61,6 +61,7 @@ template XStringAA(string name) {
 	const char[] XStringAA = "
 	string[string] _"~name~";
 	@safe auto "~name~"() { return _"~name~"; }
+	@safe auto "~name~"(string key) { return _"~name~".get(key, ``); }
 
 	@safe O "~name~"(this O)(string key, string value) { _"~name~"[key] = value; return cast(O)this; }
 	@safe O "~name~"(this O)(string[string] addValues) { foreach(kv; addValues.byKeyValue) _"~name~"[kv.key] = kv.value; return cast(O)this; }
@@ -84,6 +85,7 @@ template XPropertyAA(string key, string value, string name) {
 
 	const char[] XPropertyAA = `	`~datatype~` _`~name~`; 
 	@safe auto `~name~`() { return _`~name~`; }
+	@safe auto `~name~`(`~key~` key) { return _`~name~`[key]; }
 
 	@safe auto `~name~`(this O)(`~key~`[] keys...) { return this.`~name~`(keys); }
 	@safe auto `~name~`(this O)(`~key~`[] keys) { return _`~name~`.select(keys); }

@@ -16,8 +16,8 @@ public import uim.core;
 
 // uim-oop packages/modules
 public import uim.oop.annotations;
-/* public import uim.oop.models;
- */public import uim.oop.mixins;
+public import uim.oop.models;
+public import uim.oop.mixins;
 public import uim.oop.values;
 
 public import uim.oop.obj;
